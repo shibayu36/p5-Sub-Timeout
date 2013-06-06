@@ -77,15 +77,33 @@ __END__
 
 =head1 NAME
 
-Sub::Timeout - It's new $module
+Sub::Timeout - Yet another timeout utility function
 
 =head1 SYNOPSIS
 
     use Sub::Timeout;
+    use HTTP::Tiny;
+
+    my $res = timeout 1, sub {
+        HTTP::Tiny->new->get('http://example.com/foo');
+    };
 
 =head1 DESCRIPTION
 
-Sub::Timeout is ...
+Sub::Timeout provides the function named 'timeout'.
+
+=head1 FUNCTIONS
+
+=over 4
+
+=item timeout($time, \&code [, \&$timeout_cb])
+
+'timeout' calls C<< \&code >>.
+Return value of 'timeout' is the return value of C<< \&code >>.
+If the code timeouted, it throws exception message such as "Timeout. $time seconds.".
+If the code throws exception, this function rethrows the same exception.
+
+=back
 
 =head1 LICENSE
 
