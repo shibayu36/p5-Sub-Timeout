@@ -19,4 +19,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-shiba\_yu36 <shibayu36@gmail.com>
+shibayu36 <shibayu36@gmail.com>
